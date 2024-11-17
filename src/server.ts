@@ -1,6 +1,10 @@
+import { getTransacao } from "@routes/get-transaction";
 import { fastify } from "fastify";
 
 const app = fastify()
+
+app.register(getTransacao)
+
 app.get('/', () => {
     return 'Hello World'
 })
