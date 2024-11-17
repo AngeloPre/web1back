@@ -18,7 +18,9 @@ model Transacao {
   value       Float
   name        String
   category    String
-  description String
-  date        DateTime
+  description String?
+  date        DateTime @default(now())
   type        String // "entrada" or "saida"
+
+  @@map("transacoes")
 }
