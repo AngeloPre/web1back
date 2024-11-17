@@ -12,3 +12,13 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+model Transacao {
+  id          String   @id @default(uuid()) @map("_id") @db.ObjectId
+  value       Float
+  name        String
+  category    String
+  description String
+  date        DateTime
+  type        String // "entrada" or "saida"
+}
