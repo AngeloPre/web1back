@@ -1,1 +1,11 @@
-GET http://localhost:3333/transacoes/e5a83004-e24e-4d59-8908-e824add1efee
+POST  http://localhost:3333/transactions/
+
+Content-Type: application/json
+
+{
+  "value": 100,
+  "name": "Teste",
+  "category": "Linguiça",
+  "description": "Teste de inserção de dados",
+  "type": "entrada"
+}

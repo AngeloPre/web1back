@@ -1,16 +1,20 @@
-import { getTransacao } from "@routes/get-transaction";
-import { fastify } from "fastify";
+import fastify from 'fastify';
+import { transactionController } from './controllers/transactionController'; // Ajuste o caminho conforme necessário
 
-const app = fastify()
+const app = fastify({ logger: true });
 
-app.register(getTransacao)
+async function main() {
+  // Registra o controller
+  app.register(transactionController);
 
-app.get('/', () => {
-    return 'Hello World'
-})
+  // Inicia o servidor
+  try {
+    await app.listen({ port: 3333 });
+    app.log.info(`Servidor rodando em: http://localhost:3333`);
+  } catch (err) {
+    app.log.error(err);
+    process.exit(1);
+  }
+}
 
-app.listen({
-    port: 3333,
-}).then(() => {
-    console.log('HTTP server running')
-})
+main();
