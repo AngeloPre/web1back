@@ -1,3 +1,6 @@
+
+GET  http://localhost:3333/transactions
+
 POST  http://localhost:3333/transactions/
 
 Content-Type: application/json
