@@ -1,14 +1,14 @@
 
 GET  http://localhost:3333/transactions
 
-POST  http://localhost:3333/transactions/
-
+### Create a new transaction
+POST http://localhost:3333/transactions/
 Content-Type: application/json
 
 {
-  "value": 100,
-  "name": "Teste",
-  "category": "Linguiça",
-  "description": "Teste de inserção de dados",
+  "value": 1500,
+  "name": "Outlier",
+  "category": "salario",
+  "description": "pagamento das tasks",
   "type": "entrada"
 }
