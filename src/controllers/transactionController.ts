@@ -7,7 +7,7 @@ const repository = new Repository();
 
 export async function transactionController(fastify: FastifyInstance) {
   // Criar uma nova transação
-  fastify.post('/transactions/', async (request: FastifyRequest, reply: FastifyReply) => {
+  fastify.post('/transactions', async (request: FastifyRequest, reply: FastifyReply) => {
     try {
       const bodySchema = z.object({
         value: z.number(),
