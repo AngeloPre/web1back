@@ -1,18 +1,20 @@
 import fastify from 'fastify';
-import cors from '@fastify/cors'; // Import Fastify CORS plugin
+import fastifyCors from '@fastify/cors'; // Import Fastify CORS plugin
 import { transactionController } from './controllers/transactionController'; // Ajuste o caminho conforme necessário
+import { generateAICompletionRoute } from '@routes/generate-ai-completion';
 
 const app = fastify({ logger: true });
 
 async function main() {
   // Enable CORS
-  app.register(cors, {
+  app.register(fastifyCors, {
     origin: 'http://localhost:5173', // Allow requests from the frontend
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
   });
 
   // Register the controller
   app.register(transactionController);
+  app.register(generateAICompletionRoute);
 
   // Start the server
   try {
