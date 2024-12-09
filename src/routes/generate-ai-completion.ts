@@ -37,7 +37,7 @@ export async function generateAICompletionRoute(app: FastifyInstance) {
 
       // Generate AI response using OpenAI's streaming API
       const responseStream = await openai.chat.completions.create({
-        model: "gpt-3.5-turbo-16k",
+        model: "gpt-4o-mini",
         messages: [
           { role: "user", content: promptMessage }
         ],
